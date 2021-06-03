@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: routeguide-server
+  labels:
+    app: routeguide-server
+spec:
+  selector:
+    matchLabels:
+      app: routeguide-server
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: routeguide-server
+    spec:
+      containers:
+        - name: routeguide-server
+          image: zygtry.azurecr.io/routeguide-server:202105270910
+          resources:
+            limits:
+              memory: "128Mi"
+              cpu: "500m"
+          ports:
+            - containerPort: 10000
+          env:
+            - name: IS_TLS
+              value: "false"

@@ -1,0 +1,1 @@
+kubectl create secret tls grpc-tls --cert=../x509/server-cert.pem --key=../x509/server-key.pem --dry-run -o yaml > tls.yaml

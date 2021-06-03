@@ -1,0 +1,12 @@
+version: "3.4"
+
+services:
+  routeguide-server:
+    image: routeguide-server
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    environment:
+      - IS_TLS=true
+    ports:
+      - 10000:10000
